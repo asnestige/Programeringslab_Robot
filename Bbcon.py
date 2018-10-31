@@ -1,3 +1,8 @@
+from motob import motob
+from Sensob import *
+from Arbitrator import *
+
+
 class Bbcon:
 
     def __init__(self):
@@ -5,7 +10,7 @@ class Bbcon:
         self.active_behaviors = [] # list of all behaviors that are currently active
         self.sensobs = [] # list of all sensory objects used by the bbcon
         self.motobs = [] #list of all motor objects used by the bbcon
-        self.arbitrator = None #the arbitrator object that will resolve actuator requests produced by the behaviors.
+        self.arbitrator = Arbitrator() #the arbitrator object that will resolve actuator requests produced by the behaviors.
 
 
 #Other instance variables, such as the current timestep, the inactive behaviors, and the controlled agent/robot
@@ -32,11 +37,10 @@ class Bbcon:
             sensob.update()
 
         # Update behaviors
-
         for behavior in self.behaviors:
             behavior.update()
 
-
+        # Invoke the arbitrator by calling arbitrator.choose action
 
 
 """
@@ -44,9 +48,9 @@ In addition, BBCON must include a method named run one timestep, which constitut
 activity. It should perform (at least) the following actions on each call:
 1. Update all sensobs - These updates will involve querying the relevant sensors for their values, along
 with any pre-processing of those values (as described below)
-
 2. Update all behaviors - These updates involve reading relevant sensob values and producing a motor
 recommendation.
+
 3. Invoke the arbitrator by calling arbitrator.choose action, which will choose a winning behavior and
 return that behavior’s motor recommendations and halt request flag.
 4. Update the motobs based on these motor recommendations. The motobs will then update the settings

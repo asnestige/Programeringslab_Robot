@@ -3,6 +3,7 @@ from ultrasonic import Ultrasonic
 from camera import Camera
 from irproximity_sensor import IRProximitySensor
 
+
 class Sensob:
 
     def __init__(self):
@@ -20,6 +21,7 @@ class Sensob:
         for sensor in self.sensors:
             sensor.reset()
 
+
 class IRProximity_sensob(Sensob):  # Nærhetssensor
     def __init__(self):
         super(IRProximity_sensob, self).__init__()
@@ -30,6 +32,7 @@ class IRProximity_sensob(Sensob):  # Nærhetssensor
         print("IR", self.value)
         return self.value
 
+
 class Reflectance(Sensob):  # Sensor under, sjekker farve
     def __init__(self):
         super(Reflectance, self).__init__()
@@ -39,6 +42,7 @@ class Reflectance(Sensob):  # Sensor under, sjekker farve
         self.value = sum(self.sensors[0].update())
         print("Reflectance", self.value)
         return self.value
+
 
 class Ultrasonic_sensob(Sensob):  # Sjekker lyd, avstand forran
     def __init__(self):

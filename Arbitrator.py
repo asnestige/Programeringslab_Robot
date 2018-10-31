@@ -1,5 +1,6 @@
 from Behavior import Behavior
 
+
 class Arbitrator:
 
     def __init__(self):
