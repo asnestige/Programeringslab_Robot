@@ -65,3 +65,8 @@ def shoot_panorama(camera, motors, shots=5):
         motors.right(0.5, rotation_time)
         im = im.concat_horiz(IMR.Imager(image=camera.update()))
     return im
+
+#TEST
+#from BBCON import *
+#b = BBCON()
+#b.controller()

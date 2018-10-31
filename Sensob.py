@@ -82,3 +82,4 @@ class Camera_sensob(Sensob):  # Kamera sansor
         self.value = self.rgb(self.sensors[0].update())
         print("Camera", self.value)
         return self.value
+
