@@ -1,4 +1,4 @@
-class behavior:
+class Behavior:
 
     def __init__(self, bbcon):
         self.bbcon = bbcon
