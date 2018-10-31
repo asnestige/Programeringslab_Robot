@@ -12,20 +12,23 @@ class Bbcon:
 #may also prove useful in your implementation.
 #The method set for BBCON should include the following simple procedures:
 
-    def add_behavior(self, behaviour):  #append a newly-created behavior onto the behaviors list.
-        self.behaviors.append(behaviour)
+    def add_behavior(self, behaviors):  #append a newly-created behavior onto the behaviors list.
+        self.behaviors.append(behaviors)
 
 
     def add_sensob(self ,sensob): #append a newly-created sensob onto the sensobs list.
         self.sensobs.append(sensob)
 
 
-    def activate_behaviour(self): #add an existing behavior onto the active-behaviors list.
-        return
+    def activate_behaviour(self, behavior): #add an existing behavior onto the active-behaviors list.
+        self.active_behaviors.append(behavior)
 
-    def deactive_behaviour(self): #remove an existing behavior from the active behaviors list.
-        return
+    def deactive_behaviour(self, behavior): #remove an existing behavior from the active behaviors list.
+        if behavior in self.active_behaviors:
+            self.active_behaviors.remove(behavior)
 
+
+    def run_one_timestep(self):
 
 """
 In addition, BBCON must include a method named run one timestep, which constitutes the core BBCON
