@@ -1,4 +1,4 @@
-from config import Config
+from Config import Config
 import camera_sensob
 
 
