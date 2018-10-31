@@ -19,7 +19,8 @@ class Bbcon:
         self.sensobs.append(sensob)
 
     def activate_behaviour(self, behavior): #add an existing behavior onto the active-behaviors list.
-        self.active_behaviors.append(behavior)
+        if behavior not in self.active_behaviors:
+            self.active_behaviors.append(behavior)
 
     def deactive_behaviour(self, behavior): #remove an existing behavior from the active behaviors list.
         if behavior in self.active_behaviors:
