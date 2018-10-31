@@ -15,10 +15,8 @@ class Bbcon:
     def add_behavior(self, behaviors):  #append a newly-created behavior onto the behaviors list.
         self.behaviors.append(behaviors)
 
-
     def add_sensob(self ,sensob): #append a newly-created sensob onto the sensobs list.
         self.sensobs.append(sensob)
-
 
     def activate_behaviour(self, behavior): #add an existing behavior onto the active-behaviors list.
         self.active_behaviors.append(behavior)
@@ -27,14 +25,25 @@ class Bbcon:
         if behavior in self.active_behaviors:
             self.active_behaviors.remove(behavior)
 
-
     def run_one_timestep(self):
+        # Update sensobs
+        for sensob in self.sensobs:
+            sensob.update()
+
+        # Update behaviors
+
+        for behavior in self.behaviors:
+            behavior.update()
+
+
+
 
 """
 In addition, BBCON must include a method named run one timestep, which constitutes the core BBCON
 activity. It should perform (at least) the following actions on each call:
 1. Update all sensobs - These updates will involve querying the relevant sensors for their values, along
 with any pre-processing of those values (as described below)
+
 2. Update all behaviors - These updates involve reading relevant sensob values and producing a motor
 recommendation.
 3. Invoke the arbitrator by calling arbitrator.choose action, which will choose a winning behavior and

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2f2e8268-758c-4ac9-b0e3-a47f486c2aad" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Sensob.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bbcon.py" beforeDir="false" afterPath="$PROJECT_DIR$/Bbcon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sensob.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sensob.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,12 +31,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="469" />
+          <entry key="py" value="620" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="469" />
+          <entry key="Python" value="620" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -46,28 +45,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Bbcon.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="180">
+              <caret line="12" column="73" lean-forward="true" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
               <folding>
-                <marker date="1540979150802" expanded="true" signature="465:2420" ph="..." />
-                <marker date="1540979150802" expanded="true" signature="798:846" ph="..." />
-                <marker date="1540979150802" expanded="true" signature="929:972" ph="..." />
-                <marker date="1540979150802" expanded="true" signature="1011:1122" ph="..." />
-                <marker date="1540979150802" expanded="true" signature="1161:1222" ph="..." />
-                <marker date="1540979150802" expanded="true" signature="1161:1326" ph="..." />
+                <marker date="1540983258187" expanded="true" signature="465:2609" ph="..." />
+                <marker date="1540983258187" expanded="true" signature="798:845" ph="..." />
+                <marker date="1540983258187" expanded="true" signature="928:970" ph="..." />
+                <marker date="1540983258187" expanded="true" signature="1009:1120" ph="..." />
+                <marker date="1540983258187" expanded="true" signature="1159:1220" ph="..." />
+                <marker date="1540983258187" expanded="true" signature="1159:1323" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Sensob.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+            <state relative-caret-position="285">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
+              <folding>
+                <marker date="1540983033563" expanded="true" signature="38:207" ph="..." />
+                <marker date="1540983033563" expanded="true" signature="253:259" ph="..." />
+                <marker date="1540983033563" expanded="true" signature="275:342" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -87,8 +91,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Bbcon.py" />
         <option value="$PROJECT_DIR$/Sensob.py" />
+        <option value="$PROJECT_DIR$/Bbcon.py" />
       </list>
     </option>
   </component>
@@ -189,25 +193,30 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Bbcon.py">
+    <entry file="file://$PROJECT_DIR$/Sensob.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+        <state relative-caret-position="285">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
           <folding>
-            <marker date="1540979150802" expanded="true" signature="465:2420" ph="..." />
-            <marker date="1540979150802" expanded="true" signature="798:846" ph="..." />
-            <marker date="1540979150802" expanded="true" signature="929:972" ph="..." />
-            <marker date="1540979150802" expanded="true" signature="1011:1122" ph="..." />
-            <marker date="1540979150802" expanded="true" signature="1161:1222" ph="..." />
-            <marker date="1540979150802" expanded="true" signature="1161:1326" ph="..." />
+            <marker date="1540983033563" expanded="true" signature="38:207" ph="..." />
+            <marker date="1540983033563" expanded="true" signature="253:259" ph="..." />
+            <marker date="1540983033563" expanded="true" signature="275:342" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Sensob.py">
+    <entry file="file://$PROJECT_DIR$/Bbcon.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+        <state relative-caret-position="180">
+          <caret line="12" column="73" lean-forward="true" selection-start-line="12" selection-start-column="73" selection-end-line="12" selection-end-column="73" />
+          <folding>
+            <marker date="1540983258187" expanded="true" signature="465:2609" ph="..." />
+            <marker date="1540983258187" expanded="true" signature="798:845" ph="..." />
+            <marker date="1540983258187" expanded="true" signature="928:970" ph="..." />
+            <marker date="1540983258187" expanded="true" signature="1009:1120" ph="..." />
+            <marker date="1540983258187" expanded="true" signature="1159:1220" ph="..." />
+            <marker date="1540983258187" expanded="true" signature="1159:1323" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
