@@ -10,6 +10,9 @@ class Arbitrator:
         motor recommendations (one per motob) to move the robot
         a boolean indicating whether or not the run should be halted
     """
+
+    # we choose a detirministic behavior
+    #hver av de rgeenr ut sin egen vekt og vi velger dne som "sier den er viktigst"
     def choose_action(self, behaviors):
         right_behavior = None
         max_weight = -1

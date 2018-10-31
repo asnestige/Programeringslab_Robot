@@ -1,7 +1,7 @@
-from motob import motob
+from motob import Motob
 from Sensob import *
 from Arbitrator import *
-
+import time
 
 class Bbcon:
 
@@ -41,6 +41,19 @@ class Bbcon:
             behavior.update()
 
         # Invoke the arbitrator by calling arbitrator.choose action
+        # return an action to move the robot and boolean indicating whether or not the run should happen
+        action, halt_request = self.arbitrator.choose_action(self.behaviors)
+
+        # Update the motobs
+        for motob in self.motobs:
+            motob.update(action, halt_request)
+
+        # Allow motor sets to remain active for a short period
+        time.sleep(0.5)
+
+        # Reset the sensobs
+        for sensob in self.sensobs:
+            sensob.reset()
 
 
 """
