@@ -44,7 +44,7 @@ class Bbcon:
         # return an action to move the robot and boolean indicating whether or not the run should happen
         action, halt_request = self.arbitrator.choose_action(self.behaviors)
 
-        # Update the motobs
+        # Update the motobs  MÅ ENDRE PÅ DENNE ETTER MOTOB ER IMPLEMENTERT
         for motob in self.motobs:
             motob.update(action, halt_request)
 
