@@ -1,3 +1,7 @@
+from config import Config
+import camera_sensob
+
+
 class Behavior:
 
     def __init__(self, bbcon):
@@ -38,7 +42,7 @@ class Behavior:
 
         self.weight = self.match_degree * self.priority
 
-class Avoid_collisions(Behavior): #FRA JONAS
+class Avoid_collisions(Behavior):  # Endre denne
     def __init__(self, distance, ir):
         super(Avoid_collisions, self).__init__(None)
         self.sensobs = [distance, ir]
@@ -63,7 +67,7 @@ class Avoid_collisions(Behavior): #FRA JONAS
             self.match_degree = 1
             self.motor_recommendations = Config['J_turn']
 
-class Go(Behavior): #FRA JONAS
+class Go(Behavior): # Endre denne
     def __init__(self):
         super(Go, self).__init__(None)
         self.priority = Config['goPri']
@@ -79,7 +83,7 @@ class Go(Behavior): #FRA JONAS
         self.motor_recommendations = Config['forward']
 
 
-class StopSign(Behavior): #FRA JONAS
+class StopSign(Behavior): # Endre denne
     def __init__(self, camera):
         super(StopSign, self).__init__(None)
         self.sensobs = [camera]
