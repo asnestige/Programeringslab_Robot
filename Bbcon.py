@@ -4,13 +4,9 @@ from Sensob import *
 from Arbitrator import *
 from Behavior import *
 from Sensob import *
-from avoid_collisions import Avoid_collisions
-from stop_sign import StopSign
-from camera_sensob import Camera_sensob
-from IRproximity import IRProximity_sensob
-from ultrasonic_sensob import Ultrasonic_sensob
+
 from zumo_button import ZumoButton
-from reflectance import Reflectance
+
 
 class Bbcon:
     def __init__(self):
