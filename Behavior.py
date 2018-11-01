@@ -42,12 +42,12 @@ class Behavior:
 
         self.weight = self.match_degree * self.priority
 
-class Avoid_collisions(Behavior):  # Endre denne
+class Dont_collide(Behavior):  # Endre denne
     def __init__(self, distance, ir):
-        super(Avoid_collisions, self).__init__(None)
+        super(Dont_collide, self).__init__(None)
         self.sensobs = [distance, ir]
 
-        self.priority = Config['collisionPri']
+        self.priority = 2
 
     def consider_deactivation(self):
         self.active_flag = True
@@ -63,14 +63,14 @@ class Avoid_collisions(Behavior):  # Endre denne
         self.match_degree = 0
         self.motor_recommendations = None
 
-        if reflect > Config['reflectThr'] or dist < Config['minDist']:
+        if reflect > Config['reflectThr'] or dist < 10: #reflect threshold, hvilken verdi??,
             self.match_degree = 1
-            self.motor_recommendations = Config['J_turn']
+            self.motor_recommendations = [[-0.5, 1]] #J_turn
 
-class Go(Behavior): # Endre denne
+class Drive(Behavior): #Kjører forover
     def __init__(self):
-        super(Go, self).__init__(None)
-        self.priority = Config['goPri']
+        super(Drive, self).__init__(None)
+        self.priority = 1 #lavest pri
 
     def consider_activation(self):
         self.active_flag = True
@@ -80,15 +80,15 @@ class Go(Behavior): # Endre denne
 
     def sense_and_act(self):
         self.match_degree = 1
-        self.motor_recommendations = Config['forward']
+        self.motor_recommendations = [[0.5, 0.5]] #forward
 
 
-class StopSign(Behavior): # Endre denne
+class Stop(Behavior): # Endre denne
     def __init__(self, camera):
-        super(StopSign, self).__init__(None)
+        super(Stop, self).__init__(None)
         self.sensobs = [camera]
 
-        self.priority = Config['stopSignPri']
+        self.priority = 4 #høyest pri
 
         self.stopped = False
 
@@ -102,14 +102,14 @@ class StopSign(Behavior): # Endre denne
         rgb = self.sensobs[0].value
 
         self.match_degree = 0
-        self.motor_recommendations = Config['stop']
+        self.motor_recommendations = [[0, 0]] #stop
 
         if self.stopped:
             self.match_degree = 1
-            if rgb[1] > Config['grThr']:
+            if rgb[1] > 0.8: #green_threshold
                 self.match_degree = 0
                 self.stopped = False
 
-        elif rgb[0] > Config['redThr']:
+        elif rgb[0] > 0.95: #red_threshold
             self.stopped = True
             self.match_degree = 1

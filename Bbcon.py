@@ -2,14 +2,16 @@ from motob import Motob
 from Sensob import *
 from Arbitrator import *
 import time
+from Behavior import *
+from Sensob import *
 
 class Bbcon:
 
     def __init__(self):
-        self.behaviors = []  #list of all the behavior objects used by the bbcon
+        self.behaviors = [Drive(), Dont_collide(self.sensobs[0], self.sensobs[1]), Stop(self.sensobs[2])]  #list of all the behavior objects used by the bbcon
         self.active_behaviors = [] # list of all behaviors that are currently active
-        self.sensobs = [] # list of all sensory objects used by the bbcon
-        self.motobs = [] #list of all motor objects used by the bbcon
+        self.sensobs = [Ultrasonic_sensob(), Reflectance_sensob(), Camera_sensob()] # list of all sensory objects used by the bbcon
+        self.motobs = [Motob([Motors()])] #list of all motor objects used by the bbcon
         self.arbitrator = Arbitrator() #the arbitrator object that will resolve actuator requests produced by the behaviors.
 
 
