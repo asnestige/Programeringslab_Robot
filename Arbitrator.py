@@ -6,21 +6,16 @@ class Arbitrator:
     def __init__(self):
         pass
 
-    """return a tuple containing:
-        motor recommendations (one per motob) to move the robot
-        a boolean indicating whether or not the run should be halted
-    """
-
-    # we choose a detirministic behavior
-    #hver av de rgeenr ut sin egen vekt og vi velger dne som "sier den er viktigst"
+    #Vi bruker deterministisk oppførsel
+    #hver av de regner ut sin egen vekt og vi velger den som "sier den er viktigst"
     def choose_action(self, behaviors):
-        right_behavior = None
-        max_weight = -1
+        maximum_weight = 0
+        chosen_behavior = None
 
         #Velger riktig oppførsel og sender dens motob anbefaling til Bbcon
         for behavior in behaviors:
-            if behavior.weight > max_weight:
-                max_weight = behavior.weight
-                right_behavior = behavior
-
-        return right_behavior.motor_recommendations, right_behavior.halt_request
+            if behavior.weight >= maximum_weight:
+                maximum_weight = behavior.weight
+                chosen_behavior = behavior
+        #Return tuple containing motor recommendations and a boolean if it should halt or not. 
+        return (chosen_behavior.motor_recommendations, chosen_behavior.halt_request)

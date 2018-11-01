@@ -7,6 +7,10 @@ Created on Wed Oct 31 11:01:00 2018
 """
 from motors import Motors
 
+#Behavior sender recommendations til Arbitraty, som bestemmer hvilken handling som er av høyest prioritet. 
+#Det sendes da en ny recommendation til motob, som kun utfører den recommendation-en den får fra Arbitrator. 
+#bbcon er overordnet oversikt. 
+
 class Motob: 
     
      def __init__(self,motors):
