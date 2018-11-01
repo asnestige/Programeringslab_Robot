@@ -2,6 +2,7 @@ from reflectance_sensors import ReflectanceSensors
 from ultrasonic import Ultrasonic
 from camera import Camera
 from irproximity_sensor import IRProximitySensor
+from zumo_button import ZumoButton
 
 
 class Sensob:  # Superklasse
@@ -23,7 +24,7 @@ class Sensob:  # Superklasse
 class IRProximity_sensob(Sensob):  # Nærhetssensor
     def __init__(self):
         super(IRProximity_sensob, self).__init__()
-        self.sensors = [IRProximitySensor()] #HVOROFR LAGER DE EN NY TOM LISTE
+        self.sensors = [IRProximitySensor()]
 
     def update(self):
         self.value = self.sensors[0].update()
@@ -38,7 +39,7 @@ class Reflectance_sensob(Sensob):  # Sensor under, sjekker farve
 
     def update(self):
         self.value = sum(self.sensors[0].update())
-        print("Reflectance", self.value)
+        print("Infrared_belly", self.value)
         return self.value
 
 
@@ -80,3 +81,15 @@ class Camera_sensob(Sensob):  # Kamera sansor
         rgb[1] = rgb[1] / total
         rgb[2] = rgb[2] / total
         return rgb
+
+"""
+class Button_sensob(Sensob):
+    def __init__(self):
+        super(Button_sensob, self).__init__()
+        self.sensors = [ZumoButton()]
+
+    def update(self):
+        self.value = self.
+        print("Button", self.value)
+        return self.value
+"""
