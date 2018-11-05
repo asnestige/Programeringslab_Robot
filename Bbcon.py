@@ -1,19 +1,20 @@
-from motob import Motob
+import time
+from motob import *
 from Sensob import *
 from Arbitrator import *
-import time
 from Behavior import *
 from Sensob import *
 
-class Bbcon:
+from zumo_button import ZumoButton
 
+
+class Bbcon:
     def __init__(self):
         self.behaviors = [Drive(), Dont_collide(self.sensobs[0], self.sensobs[1]), Stop(self.sensobs[2])]  #list of all the behavior objects used by the bbcon
         self.active_behaviors = [] # list of all behaviors that are currently active
         self.sensobs = [Ultrasonic_sensob(), Reflectance_sensob(), Camera_sensob()] # list of all sensory objects used by the bbcon
         self.motobs = [Motob([Motors()])] #list of all motor objects used by the bbcon
         self.arbitrator = Arbitrator() #the arbitrator object that will resolve actuator requests produced by the behaviors.
-
 
 #Other instance variables, such as the current timestep, the inactive behaviors, and the controlled agent/robot
 #may also prove useful in your implementation.
@@ -22,7 +23,7 @@ class Bbcon:
     def add_behavior(self, behaviors):  #append a newly-created behavior onto the behaviors list.
         self.behaviors.append(behaviors)
 
-    def add_sensob(self ,sensob): #append a newly-created sensob onto the sensobs list.
+    def add_sensob(self, sensob): #append a newly-created sensob onto the sensobs list.
         self.sensobs.append(sensob)
 
     def activate_behaviour(self, behavior): #add an existing behavior onto the active-behaviors list.
