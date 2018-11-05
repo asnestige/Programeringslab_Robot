@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from time import sleep
 import RPi.GPIO as GPIO
-import wiringpi2 as wp #fikset
+import wiringpi as wp #fikset
 
 
 class Motors():
