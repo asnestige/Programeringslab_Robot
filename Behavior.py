@@ -59,7 +59,7 @@ class Dont_collide(Behavior):  # IR-Sensor og Ultrasonic, Sensor 2 og 3
         self.match_degree = 0
         self.motor_recommendations = None
 
-        if reflect < 50 or dist < 10: #reflect threshold, hvilken verdi??,
+        if reflect > 3000 or dist < 10: #reflect threshold, hvilken verdi??,
             self.match_degree = 1
             self.motor_recommendations = [[-0.5, 1]] #J_turn
 
