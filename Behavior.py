@@ -101,7 +101,7 @@ class Stop(Behavior):  # Camera-sensor, Sensor 1
 
         if self.stopped:
             self.match_degree = 1
-            if rgb[1] > 0.8:  # green_threshold
+            if rgb[1] < 0.95:  # green_threshold
                 self.match_degree = 0
                 self.stopped = False
                 self.motor_recommendations = [[0.5, 0.5]]
