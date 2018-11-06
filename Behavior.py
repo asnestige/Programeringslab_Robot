@@ -1,7 +1,6 @@
 from Sensob import *
 
 class Behavior:
-
     def __init__(self, bbcon):
         self.bbcon = bbcon
         self.sensobs = [] #alle sensobs som behavior bruker
@@ -60,7 +59,7 @@ class Dont_collide(Behavior):  # IR-Sensor og Ultrasonic, Sensor 2 og 3
         self.match_degree = 0
         self.motor_recommendations = None
 
-        if dist < 10: #reflect threshold, hvilken verdi??,
+        if reflect < 50 or dist < 10: #reflect threshold, hvilken verdi??,
             self.match_degree = 1
             self.motor_recommendations = [[-0.5, 1]] #J_turn
 
@@ -96,17 +95,14 @@ class Stop(Behavior):  # Camera-sensor, Sensor 1
     def sense_and_act(self):
         rgb = self.sensobs[0].value
 
-        #self.match_degree = 0
-        #self.motor_recommendations = [[0, 0]]  # stop
-
         if self.stopped:
             self.match_degree = 1
-            if rgb[1] < 0.95:  # green_threshold
+            if rgb[1] < 0.95:  # not black or dark color
                 self.match_degree = 0
                 self.stopped = False
                 self.motor_recommendations = [[0.5, 0.5]]
 
-        elif rgb[1] > 0.95:  # red_threshold
+        elif rgb[1] > 0.95:  # red og black
             self.stopped = True  # Stopper
             self.match_degree = 1
             self.motor_recommendations = [[0, 0]]

@@ -20,18 +20,6 @@ class Sensob:  # Superklasse
         for sensor in self.sensors:
             sensor.reset()
 
-
-class IRProximity_sensob(Sensob):  # Nærhetssensor
-    def __init__(self):
-        super(IRProximity_sensob, self).__init__()
-        self.sensors = [IRProximitySensor()]
-
-    def update(self):
-        self.value = self.sensors[0].update()
-        print("IRProximity", self.value)
-        return self.value
-
-
 class Reflectance_sensob(Sensob):  # Sensor under, sjekker farve
     def __init__(self):
         super(Reflectance_sensob, self).__init__()
@@ -41,7 +29,6 @@ class Reflectance_sensob(Sensob):  # Sensor under, sjekker farve
         self.value = sum(self.sensors[0].update())
         print("Infrared_belly", self.value)
         return self.value
-
 
 class Ultrasonic_sensob(Sensob):  # Sjekker lyd, avstand forran
     def __init__(self):
@@ -54,7 +41,6 @@ class Ultrasonic_sensob(Sensob):  # Sjekker lyd, avstand forran
         self.value = self.sensors[0].value
         print("Ultrasonic", self.value)
         return self.value
-
 
 class Camera_sensob(Sensob):  # Kamera sansor
     def __init__(self):

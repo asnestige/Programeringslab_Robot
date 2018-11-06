@@ -5,9 +5,6 @@ from Arbitrator import *
 from Behavior import *
 from Sensob import *
 
-from zumo_button import ZumoButton
-
-
 class Bbcon:
     def __init__(self):
         self.sensobs = [Ultrasonic_sensob(), Reflectance_sensob(), Camera_sensob()]  # list of all sensory objects used by the bbcon
