@@ -105,6 +105,6 @@ class Stop(Behavior):  # Camera-sensor, Sensor 1
                 self.match_degree = 0
                 self.stopped = False
 
-        elif rgb[0] > 0.95:  # red_threshold
+        elif rgb[1] > 0.95:  # red_threshold
             self.stopped = True  # Stopper
             self.match_degree = 1
