@@ -24,7 +24,7 @@ class Motob:
      def update(self, values): 
          self.values = values[0]
          print("values listen fra motors")
-         print (values)
+         print (self.values)
          self.operationalize()
          
      #Motob får motor_recommendations fra Arbitrator
