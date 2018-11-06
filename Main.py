@@ -67,6 +67,6 @@ def shoot_panorama(camera, motors, shots=5):
     return im
 
 #TEST
-#from BBCON import *
-#b = BBCON()
-#b.controller()
+from Bbcon import *
+b = Bbcon()
+b.controller()

@@ -62,7 +62,7 @@ class Dont_collide(Behavior):  # Endre denne
         self.match_degree = 0
         self.motor_recommendations = None
 
-        if reflect > reflectThr or dist < 10: #reflect threshold, hvilken verdi??,
+        if dist < 10: #reflect threshold, hvilken verdi??,
             self.match_degree = 1
             self.motor_recommendations = [[-0.5, 1]] #J_turn
 
