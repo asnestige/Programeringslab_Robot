@@ -36,3 +36,10 @@ class Motob:
         if self.values[0] == 0.5 and self.values[1] == 0.5:
             self.motors.forward(0.25, 4)
 
+        elif self.values[0] == 0 and self.values[1] == 0:
+            self.motors.stop()
+
+        elif self.values[0] == -0.5 and self.values[1] == 1:
+            self.motors.left(0.25, 4)
+
+
