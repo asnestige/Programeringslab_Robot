@@ -30,16 +30,17 @@ class Motob:
      #Motob får motor_recommendations fra Arbitrator
      #convert a motor recommendation into one or more motor settings, which are sent to the corresponding motor(s).    
      def operationalize(self):
-        #motor = Motors()
-        #bruker 0.5 som duration til å begynne med, kan være at denne må endres
 
         if self.values[0] == 0.5 and self.values[1] == 0.5:
             self.motors.forward(0.25, 4)
 
-        elif self.values[0] == 0 and self.values[1] == 0:
+        if self.values[0] == 0 and self.values[1] == 0:
             self.motors.stop()
 
-        elif self.values[0] == -0.5 and self.values[1] == 1:
+        if self.values[0] == -0.5 and self.values[1] == 1:
+            self.motors.left(0.25, 4)
+
+        if self.values[0] == 1 and self.values[1] == -0.5:
             self.motors.left(0.25, 4)
 
 
