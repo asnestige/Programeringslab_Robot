@@ -5,13 +5,11 @@ from reflectance_sensors import ReflectanceSensors
 from camera import Camera
 from motors import Motors
 from ultrasonic import Ultrasonic
-from zumo_button import ZumoButton
 from Bbcon import *
 
 
 # Gjor at roboten danser
 def dancer():
-    ZumoButton().wait_for_press()
     m = Motors()
     m.forward(0.2, 3)
     m.backward(0.2, 3)
@@ -25,7 +23,6 @@ def dancer():
 # This tests the UV (distance) sensors.  The robot moves forward to within 10 cm of the nearest obstacle.  It
 # then does a little dancing before backing up to approximately 50 cm from the nearest obstacle.
 def explorer(dist=10):
-    ZumoButton().wait_for_press()
     m = Motors()
     u = Ultrasonic()
     while u.update() > dist:
@@ -48,7 +45,6 @@ def random_step(motors, speed=0.25, duration=1):
 # It then rotates around, snapping pictures as it goes.  It then pastes all the pictures together into a
 # panoramo view, many of which may be created per "vacation".
 def tourist(steps=25, shots=5, speed=0.25):
-    ZumoButton().wait_for_press()
     rs = ReflectanceSensors(); m = Motors(); c = Camera()
     for i in range(steps):
         random_step(m, speed=speed, duration=1)

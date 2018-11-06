@@ -1,6 +1,5 @@
 from Sensob import *
 
-
 class Behavior:
 
     def __init__(self, bbcon):
@@ -41,12 +40,11 @@ class Behavior:
 
         self.weight = self.match_degree * self.priority
 
-class Dont_collide(Behavior):  # Endre denne
-    def __init__(self, distance, ir):
+class Dont_collide(Behavior):  # IR-Sensor og Ultrasonic, Sensor 2 og 3
+    def __init__(self, ultrasonic, ir):
         super(Dont_collide, self).__init__(None)
-        self.sensobs = [distance, ir]
-
-        self.priority = 2
+        self.sensobs = [ultrasonic, ir]
+        self.priority = 3
 
     def consider_deactivation(self):
         self.active_flag = True
@@ -66,7 +64,7 @@ class Dont_collide(Behavior):  # Endre denne
             self.match_degree = 1
             self.motor_recommendations = [[-0.5, 1]] #J_turn
 
-class Drive(Behavior): #Kjører forover
+class Drive(Behavior): # Kjøre frem, ingen sensor
     def __init__(self):
         super(Drive, self).__init__(None)
         self.priority = 1 #lavest pri
@@ -79,17 +77,15 @@ class Drive(Behavior): #Kjører forover
 
     def sense_and_act(self):
         self.match_degree = 1
-        self.motor_recommendations = [[0.5, 0.5]] #forward
+        self.motor_recommendations = [[0.5, 0.5]]  # forward
 
 
-class Stop(Behavior): # Endre denne
+class Stop(Behavior):  # Camera-sensor, Sensor 1
     def __init__(self, camera):
         super(Stop, self).__init__(None)
         self.sensobs = [camera]
-
-        self.priority = 4 #høyest pri
-
-        self.stopped = False
+        self.priority = 4
+        self.stopped = False  # Starter som false, da kjører den
 
     def consider_deactivation(self):
         self.active_flag = True
@@ -101,14 +97,14 @@ class Stop(Behavior): # Endre denne
         rgb = self.sensobs[0].value
 
         self.match_degree = 0
-        self.motor_recommendations = [[0, 0]] #stop
+        self.motor_recommendations = [[0, 0]]  # stop
 
         if self.stopped:
             self.match_degree = 1
-            if rgb[1] > 0.8: #green_threshold
+            if rgb[1] > 0.8:  # green_threshold
                 self.match_degree = 0
                 self.stopped = False
 
-        elif rgb[0] > 0.95: #red_threshold
-            self.stopped = True
+        elif rgb[0] > 0.95:  # red_threshold
+            self.stopped = True  # Stopper
             self.match_degree = 1
