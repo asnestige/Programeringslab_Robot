@@ -1,4 +1,4 @@
-import camera_sensob
+from Sensob import *
 
 
 class Behavior:
