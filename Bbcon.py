@@ -10,9 +10,9 @@ from zumo_button import ZumoButton
 
 class Bbcon:
     def __init__(self):
+        self.sensobs = [Ultrasonic_sensob(), Reflectance_sensob(), Camera_sensob()]  # list of all sensory objects used by the bbcon
         self.behaviors = [Drive(), Dont_collide(self.sensobs[0], self.sensobs[1]), Stop(self.sensobs[2])]  #list of all the behavior objects used by the bbcon
         self.active_behaviors = [] # list of all behaviors that are currently active
-        self.sensobs = [Ultrasonic_sensob(), Reflectance_sensob(), Camera_sensob()] # list of all sensory objects used by the bbcon
         self.motobs = [Motob([Motors()])] #list of all motor objects used by the bbcon
         self.arbitrator = Arbitrator() #the arbitrator object that will resolve actuator requests produced by the behaviors.
 
@@ -49,7 +49,7 @@ class Bbcon:
 
         # Update the motobs  MÅ ENDRE PÅ DENNE ETTER MOTOB ER IMPLEMENTERT
         for motob in self.motobs:
-            motob.update(action, halt_request)
+            motob.update(action)
 
         # Allow motor sets to remain active for a short period
         time.sleep(0.5)
