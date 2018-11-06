@@ -23,8 +23,8 @@ class Motob:
     #Receive a new motor recommendation, load it into the value slot, and operationalize it.
      def update(self, values): 
          self.values = values[0]
-         #print("values listen fra motors")
-         #print (self.values)
+         print("values listen fra motors")
+         print (self.values)
          self.operationalize()
          
      #Motob får motor_recommendations fra Arbitrator
