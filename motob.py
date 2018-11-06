@@ -13,8 +13,8 @@ from motors import Motors
 
 class Motob: 
     
-     def __init__(self,motors):
-         self.motors = motors
+     def __init__(self):
+         self.motors = Motors()
          self.values = []
 
 
