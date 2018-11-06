@@ -58,6 +58,10 @@ class Bbcon:
         for sensob in self.sensobs:
             sensob.reset()
 
+    def controller(self):
+        ZumoButton().wait_for_press()  # er nødt til å ha med denne tydeligvis
+        while True:
+            self.run_one_timestep()
 
 """
 In addition, BBCON must include a method named run one timestep, which constitutes the core BBCON
