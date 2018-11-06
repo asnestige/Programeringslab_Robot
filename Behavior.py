@@ -59,10 +59,10 @@ class Dont_collide(Behavior):  # IR-Sensor og Ultrasonic, Sensor 2 og 3
         self.match_degree = 0
         self.motor_recommendations = None
 
-        if reflect[0] > 50:
+        if reflect[0] is True:
             self.match_degree = 1
             self.motor_recommendations = [[1, -0.5]]  # Høyre snu
-        elif reflect[1] > 50:
+        elif reflect[1] is True:
             self.match_degree = 1
             self.motor_recommendations = [[-0.5, 1]]  # Venstre snu
         elif dist < 10:
