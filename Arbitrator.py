@@ -18,4 +18,4 @@ class Arbitrator:
                 maximum_weight = behavior.weight
                 chosen_behavior = behavior
         #Return tuple containing motor recommendations and a boolean if it should halt or not. 
-        return (chosen_behavior.motor_recommendations, chosen_behavior.halt_request)
+        return chosen_behavior.motor_recommendations, chosen_behavior.halt_request
