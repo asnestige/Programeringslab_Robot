@@ -59,9 +59,15 @@ class Dont_collide(Behavior):  # IR-Sensor og Ultrasonic, Sensor 2 og 3
         self.match_degree = 0
         self.motor_recommendations = None
 
-        if reflect > 3000 or dist < 10: #reflect threshold, hvilken verdi??,
+        if reflect[0] > 50:
             self.match_degree = 1
-            self.motor_recommendations = [[-0.5, 1]] #J_turn
+            self.motor_recommendations = [[1, -0.5]]  # Høyre snu
+        elif reflect[1] > 50:
+            self.match_degree = 1
+            self.motor_recommendations = [[-0.5, 1]]  # Venstre snu
+        elif dist < 10:
+            self.match_degree = 1
+            self.motor_recommendations = [[-0.5, 1]]
 
 class Drive(Behavior): # Kjøre frem, ingen sensor
     def __init__(self):
