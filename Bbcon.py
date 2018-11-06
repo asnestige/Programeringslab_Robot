@@ -7,7 +7,7 @@ from Sensob import *
 
 class Bbcon:
     def __init__(self):
-        self.sensobs = [Ultrasonic_sensob(), Reflectance_sensob(), Camera_sensob()]  # list of all sensory objects used by the bbcon
+        self.sensobs = [Ultrasonic_sensob(), IRProximity_sensob(), Camera_sensob()]  # list of all sensory objects used by the bbcon
         self.behaviors = [Drive(), Dont_collide(self.sensobs[0], self.sensobs[1]), Stop(self.sensobs[2])]  #list of all the behavior objects used by the bbcon
         self.active_behaviors = [] # list of all behaviors that are currently active
         self.motobs = [Motob()] #list of all motor objects used by the bbcon
