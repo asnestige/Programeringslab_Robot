@@ -6,6 +6,7 @@ from camera import Camera
 from motors import Motors
 from ultrasonic import Ultrasonic
 from zumo_button import ZumoButton
+from Bbcon import *
 
 
 # Gjor at roboten danser
@@ -67,6 +68,5 @@ def shoot_panorama(camera, motors, shots=5):
     return im
 
 #TEST
-from Bbcon import *
 b = Bbcon()
 b.controller()
