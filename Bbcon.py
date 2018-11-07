@@ -56,6 +56,7 @@ class Bbcon:
             sensob.reset()
 
     def controller(self):
+        ZumoButton().wait_for_press()
         while True:
             self.run_one_timestep()
 
