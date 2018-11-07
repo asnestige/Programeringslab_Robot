@@ -40,7 +40,7 @@ class Bbcon:
         # Update behaviors
         for behavior in self.behaviors:
             behavior.update()
-            if behavior.halt_request:
+            if behavior.active_flag:
                 self.activate_behaviour(behavior)
             else:
                 self.deactive_behaviour(behavior)
