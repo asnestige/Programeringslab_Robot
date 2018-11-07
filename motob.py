@@ -6,6 +6,7 @@ Created on Wed Oct 31 11:01:00 2018
 @author: NinaAarvik
 """
 from motors import Motors
+from time import sleep
 
 #Behavior sender recommendations til Arbitraty, som bestemmer hvilken handling som er av høyest prioritet. 
 #Det sendes da en ny recommendation til motob, som kun utfører den recommendation-en den får fra Arbitrator. 
@@ -27,7 +28,7 @@ class Motob:
      #Motob får motor_recommendations fra Arbitrator
      #convert a motor recommendation into one or more motor settings, which are sent to the corresponding motor(s).    
      def operationalize(self):
-
+         
         if self.values[0] == 0.5 and self.values[1] == 0.5:
             self.motors.forward(0.25, 0.5)
             print("forward")
@@ -43,5 +44,7 @@ class Motob:
             
         else: 
             self.motors.forward(0.25, 0.5)
+            
+        sleep(1)
 
 
