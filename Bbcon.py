@@ -4,6 +4,7 @@ from Sensob import *
 from Arbitrator import *
 from Behavior import *
 from Sensob import *
+from zumo_button import ZumoButton
 
 class Bbcon:
     def __init__(self):
