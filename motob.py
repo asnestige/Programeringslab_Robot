@@ -15,14 +15,11 @@ class Motob:
     
      def __init__(self):
          self.motors = Motors()
-         self.values = []
-
-
-         
+         self.values = []         
          
     #Receive a new motor recommendation, load it into the value slot, and operationalize it.
      def update(self, values): 
-         self.values = values[0]
+         self.values = values[0] # Henter den første listen i motor recommendation
          print("values listen fra motors")
          print (self.values)
          self.operationalize()
@@ -33,14 +30,18 @@ class Motob:
 
         if self.values[0] == 0.5 and self.values[1] == 0.5:
             self.motors.forward(0.25, 0.5)
-
+            print("forward")
         if self.values[0] == 0 and self.values[1] == 0:
             self.motors.stop()
-
+            print("stop!")
         if self.values[0] == -0.5 and self.values[1] == 1:
             self.motors.left(0.25, 0.5)
-
+            print("left")
         if self.values[0] == 1 and self.values[1] == -0.5:
-            self.motors.left(0.25, 0.5)
+            self.motors.right(0.25, 0.5)
+            print("right")
+            
+        else: 
+            self.motors.forward(0.25, 0.5)
 
 
