@@ -64,10 +64,10 @@ def shoot_panorama(camera, motors, shots=5):
     return im
 
 #TEST
-m = Motors() 
-m.forward(0.25, 0.5)
+#m = Motors() 
+#m.forward(0.25, 0.5)
 
-#b = Bbcon()
-#b.controller()
+b = Bbcon()
+b.controller()
 
 
