@@ -82,14 +82,14 @@ class Drive(Behavior): # Kjøre frem, ingen sensor
 
     def sense_and_act(self):
         self.match_degree = 1
-        self.motor_recommendations = [[0.5, 0.5]]  # forward
+        self.motor_recommendations = [[0.5, 0.5]]  #Sender recommendations om at den skal kjøre 
 
 
 class Stop(Behavior):  # Camera-sensor, Sensor 1
     def __init__(self, camera):
         super(Stop, self).__init__(None)
         self.sensobs = [camera]
-        self.priority = 4
+        self.priority = 4 #Stop har den høyeste prioriteten 
         self.stopped = False  # Starter som false, da kjører den
 
     def consider_deactivation(self):
@@ -102,17 +102,15 @@ class Stop(Behavior):  # Camera-sensor, Sensor 1
         rgb = self.sensobs[0].value
                           
         self.match_degree = 0
-        #self.motor_recommendations = [[0,0]]
-
 
         if self.stopped:
             self.match_degree = 1
-            if rgb[1] < 0.95:  # not black or dark color
+            if rgb[1] < 0.95:  #Lysere farger
                 self.match_degree = 0
                 self.stopped = False
-                self.motor_recommendations = [[0.5, 0.5]]
+                self.motor_recommendations = [[0.5, 0.5]] #Dersom det er en lysere farge, kan roboten kjøre igjen 
 
-        elif rgb[1] > 0.95:  # red og black
+        elif rgb[1] > 0.95:  #Rød og mørke farger
             self.stopped = True  # Stopper
             self.match_degree = 1
-            self.motor_recommendations = [[0, 0]]
+            self.motor_recommendations = [[0, 0]] #Sender recommendations om å stoppe
