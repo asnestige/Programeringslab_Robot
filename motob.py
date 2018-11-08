@@ -20,7 +20,7 @@ class Motob:
          
     #Receive a new motor recommendation, load it into the value slot, and operationalize it.
      def update(self, values): 
-         self.values = values[0] # Henter den første listen i motor recommendation
+         self.values = values # Henter den første listen i motor recommendation
          print("values listen fra motors")
          print (self.values)
          self.operationalize()
@@ -29,6 +29,13 @@ class Motob:
      #convert a motor recommendation into one or more motor settings, which are sent to the corresponding motor(s).    
      def operationalize(self):
          
+         m = Motors()
+        m.set_value(self.values, 0.5)
+        #for i in range(len(self.motors)):
+        #    self.motors[i].set_value(self.values, Config['motorDuration'])
+         
+         
+        """" 
         if self.values[0] == 0.5 and self.values[1] == 0.5:
             self.motors.forward(0.25, 0.5)
             print("forward")
@@ -47,4 +54,5 @@ class Motob:
             
         #sleep(1)
 
-
+""""
+    
