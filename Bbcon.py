@@ -40,6 +40,10 @@ class Bbcon:
         # Update behaviors
         for behavior in self.behaviors:
             behavior.update()
+            if behavior.active_flag:
+                self.activate_behaviour(behavior)
+            else:
+                self.deactive_behaviour(behavior)
 
         # Invoke the arbitrator by calling arbitrator.choose action
         # return an action to move the robot and boolean indicating whether or not the run should happen
