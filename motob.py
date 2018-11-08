@@ -30,12 +30,12 @@ class Motob:
      def operationalize(self):
          
          m = Motors()
-        m.set_value(self.values, 0.5)
+         m.set_value(self.values, 0.5)
         #for i in range(len(self.motors)):
         #    self.motors[i].set_value(self.values, Config['motorDuration'])
          
          
-        """" 
+"""
         if self.values[0] == 0.5 and self.values[1] == 0.5:
             self.motors.forward(0.25, 0.5)
             print("forward")
@@ -54,5 +54,5 @@ class Motob:
             
         #sleep(1)
 
-""""
+"""
     
