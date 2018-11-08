@@ -5,7 +5,7 @@ from Arbitrator import *
 from Behavior import *
 from Sensob import *
 from zumo_button import ZumoButton
-from motors import *
+from motors import Motors
 class Bbcon:
     def __init__(self):
         self.sensobs = [Ultrasonic_sensob(), IRProximity_sensob(), Camera_sensob()]  # list of all sensory objects used by the bbcon
@@ -62,14 +62,14 @@ class Bbcon:
             
             
         
-        ZumoButton().wait_for_press() # er nødt til å ha med denne tydeligvis
-        m = Motors()
-        i = 10
-        while i > 0:
-            m.set_value([0.2,-0.2], 1) # (speed,duration)
+        #ZumoButton().wait_for_press() # er nødt til å ha med denne tydeligvis
+        #m = Motors()
+        #i = 10
+        #while i > 0:
+         #   m.set_value([0.2,-0.2], 0.5) # (speed,duration)
             #m.set_value([-0.2, 0.2], 1)
-            m.forward(0.3, 1)
-            i -= 1
+          #  m.forward(0.3, 1)
+           # i -= 1
 
     def controller(self):
         ZumoButton().wait_for_press()
