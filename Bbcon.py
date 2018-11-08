@@ -35,11 +35,11 @@ class Bbcon:
 
     
     def run_one_timestep(self):
-        # Update sensobs
+        #Oppdaterer sensob
         for sensob in self.sensobs:
             sensob.update()
 
-        # Update behaviors
+        #Oppdaterer behaviors
         for behavior in self.behaviors:
             behavior.update()
             if behavior.active_flag:
@@ -47,31 +47,23 @@ class Bbcon:
             else:
                 self.deactive_behaviour(behavior)
 
-        # Invoke the arbitrator by calling arbitrator.choose action
-        # return an action to move the robot and boolean indicating whether or not the run should happen
+
+        #Aktiverer recommendations og går gjennom 
         recommendations, stop = self.arbitrator.choose_action(self.active_behaviors)
         for i in range(len(self.motobs)):
             self.motobs[i].update(recommendations[i])
 
-        # Allow motor sets to remain active for a short period
+        #Inaktiverer roboten for en liten periode
         time.sleep(0.5)
 
-        # Reset the sensobs
+        #Tilbakestiller sensobs
         for sensob in self.sensobs:
             sensob.reset()
             
-            
-        
-        #ZumoButton().wait_for_press() # er nødt til å ha med denne tydeligvis
-        #m = Motors()
-        #i = 10
-        #while i > 0:
-         #   m.set_value([0.2,-0.2], 0.5) # (speed,duration)
-            #m.set_value([-0.2, 0.2], 1)
-          #  m.forward(0.3, 1)
-           # i -= 1
+
 
     def controller(self):
+        #Må trykke for at den skal kjøre
         ZumoButton().wait_for_press()
         while True:
             self.run_one_timestep()
