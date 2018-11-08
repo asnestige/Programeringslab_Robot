@@ -102,7 +102,7 @@ class Stop(Behavior):  # Camera-sensor, Sensor 1
         rgb = self.sensobs[0].value
                           
         self.match_degree = 0
-        self.motor_recommendations = [[0,0]]
+        #self.motor_recommendations = [[0,0]]
 
 
         if self.stopped:
@@ -110,9 +110,9 @@ class Stop(Behavior):  # Camera-sensor, Sensor 1
             if rgb[1] < 0.95:  # not black or dark color
                 self.match_degree = 0
                 self.stopped = False
-                #self.motor_recommendations = [[0.5, 0.5]]
+                self.motor_recommendations = [[0.5, 0.5]]
 
         elif rgb[1] > 0.95:  # red og black
             self.stopped = True  # Stopper
             self.match_degree = 1
-            #self.motor_recommendations = [[0, 0]]
+            self.motor_recommendations = [[0, 0]]
