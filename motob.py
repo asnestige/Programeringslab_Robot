@@ -28,9 +28,12 @@ class Motob:
      #Motob får motor_recommendations fra Arbitrator
      #convert a motor recommendation into one or more motor settings, which are sent to the corresponding motor(s).    
      def operationalize(self):
-         
+        #Oppretter motors-objekt
         m = Motors()
+        #henter inn recommendation fra arbitrator og plugger inn i motors
         m.set_value(self.values, 0.5)
+        
+        #Går gjennom listen og bruker den til å utføre de forskjellige handlingene fra motors
         for i in range(len(self.motors)):
             self.motors[i].set_value(self.values, 0.5)
          
