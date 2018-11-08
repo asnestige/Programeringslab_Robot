@@ -11,7 +11,7 @@ class Bbcon:
         self.sensobs = [Ultrasonic_sensob(), IRProximity_sensob(), Camera_sensob()]  # list of all sensory objects used by the bbcon
         self.behaviors = [Drive(), Dont_collide(self.sensobs[0], self.sensobs[1]), Stop(self.sensobs[2])]  #list of all the behavior objects used by the bbcon
         self.active_behaviors = [] # list of all behaviors that are currently active
-        self.motobs = [Motob()] #list of all motor objects used by the bbcon
+        self.motobs = [Motob([Motors()])] #list of all motor objects used by the bbcon
         self.arbitrator = Arbitrator() #the arbitrator object that will resolve actuator requests produced by the behaviors.
 
 #Other instance variables, such as the current timestep, the inactive behaviors, and the controlled agent/robot
