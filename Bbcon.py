@@ -32,6 +32,8 @@ class Bbcon:
         if behavior in self.active_behaviors:
             self.active_behaviors.remove(behavior)
 
+
+    
     def run_one_timestep(self):
         # Update sensobs
         for sensob in self.sensobs:
