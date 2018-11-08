@@ -47,11 +47,9 @@ class Bbcon:
 
         # Invoke the arbitrator by calling arbitrator.choose action
         # return an action to move the robot and boolean indicating whether or not the run should happen
-        action, halt_request = self.arbitrator.choose_action(self.behaviors)
-
-        # Update the motobs  MÅ ENDRE PÅ DENNE ETTER MOTOB ER IMPLEMENTERT
-        for motob in self.motobs:
-            motob.update(action)
+        recommendations, stop = self.arbitrator.choose_action(self.active_behaviors)
+        for i in range(len(self.motobs)):
+            self.motobs[i].update(recommendations[i])
 
         # Allow motor sets to remain active for a short period
         time.sleep(0.5)
